@@ -1,0 +1,20 @@
+# Compiled / build artifacts
+build/
+install/
+log/
+
+# Students' personal saved maps (keep the bundled backup_map.* committed)
+my_map.*
+ros2_ws/src/lab/maps/my_map.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store

@@ -1,0 +1,8 @@
+# Optional default waypoint list, in case you want to read it from a yaml
+# instead of hard-coding inside waypoint_follower.py.
+# (Not loaded by the script as shipped; here as a reference for stretch work.)
+waypoints:
+  - { x:  1.5, y:  0.5, yaw:  0.0 }
+  - { x:  1.5, y: -0.5, yaw: -1.5707 }
+  - { x: -1.5, y: -0.5, yaw:  3.1415 }
+  - { x: -1.5, y:  0.5, yaw:  1.5707 }

@@ -1,7 +1,7 @@
 # ROS 2 Guest Lecture — TurtleBot3 + Nav2 Lab
 
 > Companion ROS 2 workspace for the 90-minute guest lecture *"ROS 2 and Autonomous Mobile Robots"*.
-> Use it as a **The Construct ROSject** (recommended for students) or as a **local Ubuntu 24.04 + ROS 2 Jazzy** install (instructor's Plan B laptop).
+> Use it as a **The Construct ROSject** or as a **local Ubuntu 24.04 + ROS 2 Jazzy** install (instructor's Plan B laptop).
 
 This repo contains exactly what students need for the three hands-on blocks:
 
@@ -40,20 +40,20 @@ All three launch files are **thin wrappers** around the upstream TurtleBot3 laun
 
 ---
 
-## Quick start — local Ubuntu 24.04 + ROS 2 Jazzy
+## Quick start — local Ubuntu 24.04 + ROS 2 ${ROS_DISTRO}
 
 ```bash
 # 1. Install dependencies (one-time)
 sudo apt update
 sudo apt install -y \
-    ros-jazzy-desktop \
-    ros-jazzy-nav2-bringup \
-    ros-jazzy-nav2-simple-commander \
-    ros-jazzy-turtlebot3 \
-    ros-jazzy-turtlebot3-gazebo \
-    ros-jazzy-turtlebot3-cartographer \
-    ros-jazzy-turtlebot3-navigation2 \
-    ros-jazzy-turtlebot3-teleop \
+    ros-${ROS_DISTRO}-desktop \
+    ros-${ROS_DISTRO}-nav2-bringup \
+    ros-${ROS_DISTRO}-nav2-simple-commander \
+    ros-${ROS_DISTRO}-turtlebot3 \
+    ros-${ROS_DISTRO}-turtlebot3-gazebo \
+    ros-${ROS_DISTRO}-turtlebot3-cartographer \
+    ros-${ROS_DISTRO}-turtlebot3-navigation2 \
+    ros-${ROS_DISTRO}-turtlebot3-teleop \
     python3-colcon-common-extensions
 
 # 2. Build
@@ -62,9 +62,9 @@ colcon build --symlink-install
 source install/setup.bash
 
 # 3. Set the robot model (required by TurtleBot3 packages every shell)
-export TURTLEBOT3_MODEL=burger
+export TURTLEBOT3_MODEL=waffle
 # Add to ~/.bashrc to persist:
-echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
+echo 'export TURTLEBOT3_MODEL=waffle' >> ~/.bashrc
 
 # 4. Run — three terminals, in this order
 # Terminal A: Gazebo + TurtleBot3
@@ -83,8 +83,6 @@ ros2 launch lab nav2.launch.py map:=$HOME/my_map.yaml
 # In another terminal, run the waypoint follower:
 ros2 run lab waypoint_follower
 ```
-
-> **Jazzy not available?** Substitute `humble` for `jazzy` throughout — the launch files and the waypoint script are version-agnostic.
 
 ---
 
@@ -111,21 +109,6 @@ ros2 run lab waypoint_follower
    | SLAM | `bash -lc 'ros2 launch lab slam.launch.py'` |
    | Nav2 | `bash -lc 'ros2 launch lab nav2.launch.py map:=$HOME/my_map.yaml'` |
 
-5. Make the ROSject **public** and copy the share link. Print it as a QR code for Slide 10 of the deck.
-
----
-
-## Make it a GitHub repo
-
-```bash
-cd ros2_ws/src/lab
-git init -b main
-git add .
-git commit -m "Initial guest lecture lab package"
-gh repo create <your-org>/ros2-guest-lecture-lab --public --source=. --push
-```
-
-(Or push to an existing remote.) Then point students at the repo's `README.md` and the [lab sheet](../lecture/lab_sheet.md).
 
 ---
 

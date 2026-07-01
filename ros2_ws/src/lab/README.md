@@ -23,7 +23,7 @@ This package is what you'll touch during the guest lecture. The big picture is i
 The TurtleBot3 packages need to know which model you're using (`burger`, `waffle`, or `waffle_pi`). Set it once per shell:
 
 ```bash
-export TURTLEBOT3_MODEL=burger
+export TURTLEBOT3_MODEL=waffle
 ```
 
-Or persist it: `echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc`.
+Or persist it: `echo 'export TURTLEBOT3_MODEL=waffle' >> ~/.bashrc`.

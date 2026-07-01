@@ -1,4 +1,4 @@
-"""Launch TurtleBot3 in a Gazebo world (Plan A / Plan B).
+"""Launch TurtleBot3 in a Gazebo world 
 
 Wraps the upstream `turtlebot3_gazebo` empty_world launch. Set the
 TURTLEBOT3_MODEL environment variable to `burger`, `waffle`, or `waffle_pi`

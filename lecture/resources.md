@@ -50,5 +50,5 @@
 ## And finally
 
 - **Your ROSject** is still in your account at https://app.theconstruct.ai/. Reopen it any time, fork it, break it, fix it.
-- **Build the thing you said in the closing question.** Email me what breaks: [your email]. I will help.
+- **Build the thing you said in the closing question.** 
 - If you end up doing your bachelor thesis on something Nav2-flavored, mention this lecture — I'd like to know it landed.

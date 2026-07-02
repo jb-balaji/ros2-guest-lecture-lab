@@ -19,6 +19,11 @@ def generate_launch_description() -> LaunchDescription:
     model = LaunchConfiguration('model')
 
     tb3_gazebo_share = get_package_share_directory('turtlebot3_gazebo')
+    tb3_models_dir = os.path.join(tb3_gazebo_share, 'models')
+    existing_resource_path = os.environ.get('GZ_SIM_RESOURCE_PATH', '')
+    resource_path = (
+        f'{tb3_models_dir}:{existing_resource_path}' if existing_resource_path else tb3_models_dir
+    )
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -33,6 +38,10 @@ def generate_launch_description() -> LaunchDescription:
             description='TurtleBot3 model: burger | waffle | waffle_pi',
         ),
         SetEnvironmentVariable('TURTLEBOT3_MODEL', model),
+        # Ensure Gazebo can resolve `model://turtlebot3_world` (and friends)
+        # referenced inside the .world files by adding the turtlebot3_gazebo
+        # models directory to the resource search path.
+        SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', resource_path),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 os.path.join(tb3_gazebo_share, 'launch', 'turtlebot3_world.launch.py')

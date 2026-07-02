@@ -40,5 +40,6 @@ cat <<EOF
     source /opt/ros/${ROS_DISTRO}/setup.bash
     source $(pwd)/ros2_ws/install/setup.bash
     export TURTLEBOT3_MODEL=burger
+    export GZ_SIM_RESOURCE_PATH=/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models:\${GZ_SIM_RESOURCE_PATH}
 
 EOF
